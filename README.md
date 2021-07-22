@@ -52,3 +52,9 @@ model Post {
   body  String
 }
 ```
+
+## TODO
+
+* Write a getting started guide with [MongoDB on Railway](https://docs.railway.app/plugins/mongodb)
+* Docs like [these](https://redwoodjs.com/docs/local-postgres-setup) instead of Postgres
+* Unit tests and mocks/scenarios, check [testing the database](https://redwoodjs.com/docs/testing#the-test-database) section of docs
