@@ -9,29 +9,39 @@
 
 ### Setup
 
-We use Yarn as our package manager. To get the dependencies installed, just do this in the root directory:
+Set MongoDB connection string to an environment variable called `DATABASE_URL` in a `.env` file.
 
 ```terminal
-yarn install
+touch .env
 ```
 
-### Fire it up
+Example connection string:
+
+```
+DATABASE_URL=mongodb+srv://ajcwebdev:dont-steal-my-db-ill-kill-you@nailed-it.5mngs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+```
+
+Install dependencies and start development server
 
 ```terminal
-yarn redwood dev
+yarn
+yarn rw dev
 ```
 
-Your browser should open automatically to `http://localhost:8910` to see the web app. Lambda functions run on `http://localhost:8911` and are also proxied to `http://localhost:8910/.redwood/functions/*`. 
-
-Scaffold seemed to work flawlessly.
+Open `http://localhost:8910/posts` to see the admin dashboard.
 
 ![01-redwood-admin-with-mongodb](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yxfxm54a7n17dezag4pw.png)
+
+This should match your data in Atlas or Railway.
 
 ![02-mongodb-atlas-with-seed-data](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gf772mp6umqgrb71f5r2.png)
 
 ## Resources
 
-* If you need help getting setup with Atlas you can view my guide [here](https://dev.to/ajcwebdev/can-i-use-mongodb-with-prisma-yet-50go).
+* [MongoDB Atlas Guide](https://dev.to/ajcwebdev/can-i-use-mongodb-with-prisma-yet-50go)
+* [MongoDB on Railway Guide](https://dev.to/ajcwebdev/query-a-mongodb-database-with-prisma-and-railway-ig8)
+* [Redwood Tutorial Blog with MongoDB](https://github.com/thedavidprice/redwood-tutorial-mongo)
+* [Issue #840, MongoDB: Create a Doc or Cookbook](https://github.com/redwoodjs/redwoodjs.com/issues/840)
 
 ## Prisma Schema
 
@@ -52,9 +62,3 @@ model Post {
   body  String
 }
 ```
-
-## TODO
-
-* Write a getting started guide with [MongoDB on Railway](https://docs.railway.app/plugins/mongodb)
-* Docs like [these](https://redwoodjs.com/docs/local-postgres-setup) instead of Postgres
-* Unit tests and mocks/scenarios, check [testing the database](https://redwoodjs.com/docs/testing#the-test-database) section of docs
