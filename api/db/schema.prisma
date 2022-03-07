@@ -9,7 +9,7 @@ generator client {
 }
 
 model Post {
-  id    String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
   title String
   body  String
 }
