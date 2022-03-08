@@ -1,21 +1,12 @@
-# Redwood
+## Setup
 
-> **WARNING:** RedwoodJS software has not reached a stable version 1.0 and should not be considered suitable for production use. In the "make it work; make it right; make it fast" paradigm, Redwood is in the later stages of the "make it work" phase.
-
-## Getting Started
-- [Tutorial](https://redwoodjs.com/tutorial/welcome-to-redwood): getting started and complete overview guide.
-- [Docs](https://redwoodjs.com/docs/introduction): using the Redwood Router, handling assets and files, list of command-line tools, and more.
-- [Redwood Community](https://community.redwoodjs.com): get help, share tips and tricks, and collaborate on everything about RedwoodJS.
-
-### Setup
-
-Set MongoDB connection string to an environment variable called `DATABASE_URL` in a `.env` file.
+Create a `.env` file for the MongoDB connection string.
 
 ```terminal
 touch .env
 ```
 
-Example connection string:
+Create an environment variable called `DATABASE_URL` in a `.env` file with your database connection string. Example connection string:
 
 ```
 DATABASE_URL=mongodb+srv://ajcwebdev:dont-steal-my-db-ill-kill-you@nailed-it.5mngs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
@@ -28,13 +19,13 @@ yarn
 yarn rw dev
 ```
 
-Open `http://localhost:8910/posts` to see the admin dashboard.
+Open `http://localhost:8910/posts` to see the admin dashboard and create a post. After doing so you will see it displayed like so:
 
-![01-redwood-admin-with-mongodb](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yxfxm54a7n17dezag4pw.png)
+<img width="900" alt="01-redwood-admin-with-mongodb" src="https://user-images.githubusercontent.com/12433465/157195130-4efbc76b-f6e8-480f-a896-544f7da02009.png">
 
-This should match your data in Atlas or Railway.
+This should match your data in Atlas.
 
-![02-mongodb-atlas-with-seed-data](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gf772mp6umqgrb71f5r2.png)
+<img width="900" alt="02-mongodb-atlas-with-seed-data" src="https://user-images.githubusercontent.com/12433465/157194976-e1d724c0-27b8-453f-9fbe-7f9340460f76.png">
 
 ## Resources
 
@@ -57,8 +48,9 @@ generator client {
 }
 
 model Post {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
-  body  String
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  body      String
+  createdAt DateTime @default(now())
 }
 ```

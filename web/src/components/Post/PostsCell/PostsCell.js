@@ -8,6 +8,7 @@ export const QUERY = gql`
       id
       title
       body
+      createdAt
     }
   }
 `
@@ -26,7 +27,7 @@ export const Empty = () => {
 }
 
 export const Failure = ({ error }) => (
-  <div style={{ color: 'red' }}>Error: {error.message}</div>
+  <div className="rw-cell-error">{error.message}</div>
 )
 
 export const Success = ({ posts }) => {

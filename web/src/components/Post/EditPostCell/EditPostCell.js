@@ -10,6 +10,7 @@ export const QUERY = gql`
       id
       title
       body
+      createdAt
     }
   }
 `
@@ -19,6 +20,7 @@ const UPDATE_POST_MUTATION = gql`
       id
       title
       body
+      createdAt
     }
   }
 `
@@ -26,7 +28,7 @@ const UPDATE_POST_MUTATION = gql`
 export const Loading = () => <div>Loading...</div>
 
 export const Failure = ({ error }) => (
-  <div style={{ color: 'red' }}>Error: {error.message}</div>
+  <div className="rw-cell-error">{error.message}</div>
 )
 
 export const Success = ({ post }) => {
@@ -34,6 +36,9 @@ export const Success = ({ post }) => {
     onCompleted: () => {
       toast.success('Post updated')
       navigate(routes.posts())
+    },
+    onError: (error) => {
+      toast.error(error.message)
     },
   })
 
