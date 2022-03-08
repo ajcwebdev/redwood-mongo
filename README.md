@@ -53,11 +53,11 @@ datasource db {
 
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["mongodb"]
+  previewFeatures = ["mongoDb"]
 }
 
 model Post {
-  id    String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
   title String
   body  String
 }
